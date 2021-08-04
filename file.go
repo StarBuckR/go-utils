@@ -26,6 +26,19 @@ func AppendToFile(path string, content string) error {
 	if err != nil {
 		return err
 	}
+	defer file.Close()
+
+	file.WriteString(content)
+	return nil
+}
+
+// Delete all file contents and rewrite it
+func WriteToFileTruncate(filePath string, content string) error {
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0666)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
 
 	file.WriteString(content)
 	return nil
