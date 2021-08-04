@@ -1,4 +1,4 @@
-module github.com/starbuckr/go-utils
+module github.com/starbuckr/go-sbutils
 
 go 1.16
 
